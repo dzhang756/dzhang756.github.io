@@ -96,6 +96,22 @@ section h2 {
   margin-bottom: 0;
 }
 
+/* Skills tags */
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill {
+  background-color: #e0ecff;
+  color: #1e3a8a;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
 /* Buttons / links */
 .button {
   display: inline-block;
