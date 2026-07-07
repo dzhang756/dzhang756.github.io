@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NSW Road Traffic Volume Analysis | David Zhang</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>NSW Road Traffic Volume Analysis</h1>
+    <p>Python data analysis project using Transport for NSW open data</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+
+  <main>
+
+    <section>
+      <h2>Project Overview</h2>
+      <p>
+        This project analyses publicly available NSW road traffic count data from
+        Transport for NSW to explore how measured traffic volumes vary by road
+        location, suburb, LGA and year.
+      </p>
+      <p>
+        The project follows a full data workflow, including data download,
+        profiling, cleaning, preparation, analysis and visualisation.
+      </p>
+    </section>
+
+    <section>
+      <h2>Objective</h2>
+      <p>
+        The main question explored in this project was:
+      </p>
+      <p>
+        <strong>
+          How do recorded traffic volumes vary across NSW traffic count stations,
+          road corridors, LGAs and years?
+        </strong>
+      </p>
+    </section>
+
+    <section>
+      <h2>Tools Used</h2>
+      <div class="skills-list">
+        <span class="skill">Python</span>
+        <span class="skill">pandas</span>
+        <span class="skill">matplotlib</span>
+        <span class="skill">GitHub Codespaces</span>
+        <span class="skill">GitHub</span>
+        <span class="skill">Data Cleaning</span>
+        <span class="skill">Data Analysis</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Analysis Dataset</h2>
+      <p>
+        The analysis uses a focused “overall traffic” dataset to avoid mixing
+        different reporting periods, vehicle classes and directional records.
+      </p>
+
+      <p>The final focused dataset contains:</p>
+
+      <ul>
+        <li><strong>5,981</strong> records</li>
+        <li><strong>1,727</strong> unique traffic count stations</li>
+        <li><strong>151</strong> LGAs</li>
+        <li><strong>898</strong> suburbs</li>
+        <li>Data from <strong>2006 to 2025</strong></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Key Findings</h2>
+
+      <h3>1. High measured traffic counts are concentrated around major road corridors</h3>
+      <p>
+        The highest average measured traffic counts appeared around major routes
+        such as Bradfield Highway, Western Motorway, Western Distributor,
+        Southern Cross Drive and South Western Motorway.
+      </p>
+
+      <h3>2. Station-level analysis is more reliable than broad suburb or LGA claims</h3>
+      <p>
+        The dataset is based on traffic count stations, so the results are best
+        interpreted as measured traffic at available station locations rather than
+        total traffic across an entire suburb or LGA.
+      </p>
+
+      <h3>3. Yearly trends are affected by station coverage</h3>
+      <p>
+        Average recorded traffic counts generally declined after the 2013–2014
+        period. However, the number of available records also changes substantially
+        by year, so the trend should be interpreted carefully.
+      </p>
+
+      <h3>4. Data quality should be considered before drawing conclusions</h3>
+      <p>
+        The dataset includes quality rating fields and some missing quality values.
+        The analysis includes data quality summaries to support more careful
+        interpretation.
+      </p>
+    </section>
+
+    <section>
+      <h2>Project Outputs</h2>
+      <p>
+        The project produced summary tables and charts covering top measured
+        stations, road/suburb combinations, LGA-level summaries and yearly trend
+        comparisons.
+      </p>
+
+      <p>
+        For the full technical workflow, code and output charts, view the GitHub
+        repository below.
+      </p>
+
+      <a class="button" href="https://github.com/dzhang756/nsw-traffic-volume-analysis" target="_blank" rel="noopener">
+        View GitHub Repository
+      </a>
+    </section>
+
+    <section>
+      <h2>Limitations</h2>
+      <p>
+        This analysis should be interpreted as an exploratory review of available
+        traffic count records, not a complete measure of all road traffic across NSW.
+      </p>
+
+      <ul>
+        <li>The data is collected at traffic count station locations only.</li>
+        <li>Station coverage varies by year.</li>
+        <li>Some roads, suburbs and LGAs have more monitoring coverage than others.</li>
+        <li>Some records have missing location or quality information.</li>
+        <li>Results should not be interpreted as total traffic by suburb or LGA.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Skills Demonstrated</h2>
+      <div class="skills-list">
+        <span class="skill">Public Data Extraction</span>
+        <span class="skill">Data Profiling</span>
+        <span class="skill">Data Cleaning</span>
+        <span class="skill">Feature Creation</span>
+        <span class="skill">Exploratory Analysis</span>
+        <span class="skill">Data Quality Review</span>
+        <span class="skill">Visualisation</span>
+        <span class="skill">Insight Communication</span>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 David Zhang </p>
+    <p>Built with GitHub Pages.</p>
+  </footer>
+
+</body>
+</html>
