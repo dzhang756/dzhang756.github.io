@@ -49,6 +49,21 @@
     </section>
 
     <section>
+      <h2>Data Source</h2>
+      <p>
+        This project uses publicly available traffic count data from Transport for NSW,
+        accessed through the Data.NSW open data portal.
+      </p>
+    
+      <p>
+        Original dataset:
+        <a href="https://data.nsw.gov.au/data/dataset/2-nsw-roads-traffic-volume-counts-api" target="_blank" rel="noopener">
+          NSW Roads Traffic Volume Counts API
+        </a>
+      </p>
+    </section>
+    
+    <section>
       <h2>Tools Used</h2>
       <div class="skills-list">
         <span class="skill">Python</span>
@@ -111,6 +126,68 @@
       </p>
     </section>
 
+    <section>
+      <h2>Visualisations</h2>
+      <p>
+        The charts below summarise the main analysis outputs, including high-volume
+        measured stations, road/suburb combinations, LGA-level comparisons and yearly
+        trend patterns.
+      </p>
+    
+      <div class="chart-grid">
+    
+        <div class="chart-card">
+          <img src="assets/traffic-volume/top_15_robust_overall_stations.png" alt="Top 15 measured traffic stations by average overall traffic count">
+          <h3>Top measured traffic stations</h3>
+          <p>
+            This chart ranks measured traffic count stations by average overall traffic
+            count, using a more reliable ranking that excludes unknown locations and
+            requires at least five observed records.
+          </p>
+        </div>
+    
+        <div class="chart-card">
+          <img src="assets/traffic-volume/top_15_robust_overall_road_suburbs.png" alt="Top 15 road and suburb combinations by average overall traffic count">
+          <h3>Top road/suburb combinations</h3>
+          <p>
+            This view highlights road and suburb combinations with the highest average
+            measured traffic counts.
+          </p>
+        </div>
+    
+        <div class="chart-card">
+          <img src="assets/traffic-volume/top_15_robust_overall_lgas.png" alt="Top 15 LGAs by average measured traffic count">
+          <h3>Top LGAs by measured traffic counts</h3>
+          <p>
+            This chart compares LGAs based on average traffic counts at available
+            measured stations. It should not be interpreted as total traffic across
+            each LGA.
+          </p>
+        </div>
+    
+        <div class="chart-card">
+          <img src="assets/traffic-volume/yearly_average_all_vs_stable_10_plus.png" alt="Yearly average traffic count comparison between all records and stable 10 plus year stations">
+          <h3>Yearly trend and station coverage</h3>
+          <p>
+            This chart compares all available overall records against a more stable
+            subset of stations observed for at least 10 years, showing why coverage
+            needs to be considered when interpreting trends.
+          </p>
+        </div>
+    
+        <div class="chart-card">
+          <img src="assets/traffic-volume/overall_records_by_year.png" alt="Number of overall traffic count records by year">
+          <h3>Record coverage by year</h3>
+          <p>
+            This chart shows how the number of available records changes by year,
+            which helps explain why yearly traffic trends should be interpreted with
+            care.
+          </p>
+        </div>
+    
+      </div>
+    </section>
+    
     <section>
       <h2>Project Outputs</h2>
       <p>
