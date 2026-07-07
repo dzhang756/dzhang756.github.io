@@ -112,6 +112,37 @@ section h2 {
   font-weight: bold;
 }
 
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* Chart tags */
+.chart-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  background-color: #f9fafb;
+}
+
+.chart-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background-color: white;
+}
+
+.chart-card h3 {
+  margin-top: 16px;
+  color: #1e3a8a;
+}
+
+.chart-card p {
+  margin-bottom: 0;
+}
+
 /* Buttons / links */
 .button {
   display: inline-block;
