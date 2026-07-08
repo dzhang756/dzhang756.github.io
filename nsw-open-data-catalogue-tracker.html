@@ -1,274 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NSW Open Data Catalogue Tracker | David Zhang</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NSW Open Data Catalogue Tracker | David Zhang</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="site-header">
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="traffic-volume-analysis.html">Traffic Volume Analysis</a>
-            <a href="nsw-open-data-catalogue-tracker.html">NSW Open Data Catalogue Tracker</a>
-        </nav>
-    </header>
+  <header>
+    <h1>NSW Open Data Catalogue Tracker</h1>
+    <p>Python data collection and analysis project using the Data.NSW catalogue API</p>
+  </header>
 
-    <main class="project-page">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
 
-        <section class="project-hero">
-            <h1>NSW Open Data Catalogue Tracker</h1>
-            <p>
-                A Python-based data collection and analysis project that uses the Data.NSW catalogue API
-                to collect, clean, analyse and visualise metadata about public datasets published by
-                NSW Government organisations.
-            </p>
+  <main>
 
-            <div class="project-links">
-                <a href="https://github.com/dzhang756/nsw-open-data-catalogue-tracker" target="_blank">
-                    View GitHub Repository
-                </a>
-                <a href="https://data.nsw.gov.au/data/api/3/action/package_search" target="_blank">
-                    Data.NSW API Endpoint
-                </a>
-            </div>
-        </section>
+    <section>
+      <h2>Project Overview</h2>
+      <p>
+        This project analyses publicly available metadata from the Data.NSW open data
+        catalogue to explore how NSW Government datasets are published, maintained and
+        made available for reuse.
+      </p>
+      <p>
+        The project follows a full data workflow, including API data collection,
+        cleaning, feature creation, summary analysis and visualisation.
+      </p>
+    </section>
 
-        <section>
-            <h2>Project Overview</h2>
-            <p>
-                Open data portals are valuable when datasets are easy to find, access and reuse.
-                This project analyses the Data.NSW catalogue to understand how NSW public-sector
-                datasets are published, which organisations contribute the most datasets, which
-                file formats are most common, and how many datasets are available in structured or
-                machine-readable formats.
-            </p>
+    <section>
+      <h2>Data Source</h2>
+      <p>
+        This project uses publicly available catalogue metadata from the Data.NSW open
+        data portal, accessed through the CKAN package search API.
+      </p>
 
-            <p>
-                The project follows a simple end-to-end data pipeline:
-            </p>
+      <p>
+        <strong>
+          API endpoint:
+        </strong>
+        <a href="https://data.nsw.gov.au/data/api/3/action/package_search" target="_blank" rel="noopener">
+          Data.NSW CKAN package search API
+        </a>
+      </p>
+    </section>
 
-            <div class="pipeline-box">
-                <p>
-                    Data.NSW catalogue API → Raw metadata collection → Data cleaning →
-                    Summary analysis → Charts and output tables
-                </p>
-            </div>
-        </section>
+    <section>
+      <h2>Objective</h2>
+      <p>
+        The main question explored in this project was:
+      </p>
+      <p>
+        <strong>
+          How are datasets in the Data.NSW catalogue published across organisations,
+          resource formats and machine-readable access types?
+        </strong>
+      </p>
+      <br>
+        Supporting questions:
+      <ul>
+        <li>Which organisations publish the most datasets?</li>
+        <li>Which resource formats are most common across the catalogue?</li>
+        <li>How many datasets include resources that appear to be machine-readable?</li>
+        <li>Which organisations publish the most machine-readable datasets?</li>
+        <li>How recently have catalogue metadata records been modified?</li>
+      </ul>
+    </section>
 
-        <section>
-            <h2>Tools Used</h2>
-            <ul>
-                <li>Python</li>
-                <li>requests</li>
-                <li>pandas</li>
-                <li>matplotlib</li>
-                <li>GitHub Codespaces</li>
-                <li>Git / GitHub</li>
-            </ul>
-        </section>
+    <section>
+      <h2>Tools Used</h2>
+      <div class="skills-list">
+        <span class="skill">Python</span>
+        <span class="skill">requests</span>
+        <span class="skill">pandas</span>
+        <span class="skill">matplotlib</span>
+        <span class="skill">GitHub Codespaces</span>
+        <span class="skill">GitHub</span>
+        <span class="skill">API Data Collection</span>
+        <span class="skill">Data Cleaning</span>
+        <span class="skill">Data Analysis</span>
+      </div>
+    </section>
 
-        <section>
-            <h2>Key Results</h2>
+    <section>
+      <h2>Analysis Dataset</h2>
+      <p>
+        The analysis uses catalogue metadata collected from the Data.NSW API. Each
+        dataset record was flattened into a structured format with fields such as
+        dataset title, organisation, metadata dates, resource count, resource formats,
+        resource URLs and tags.
+      </p>
 
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <h3>16,970</h3>
-                    <p>Total datasets collected</p>
-                </div>
+      <p>The final collected dataset contains:</p>
 
-                <div class="metric-card">
-                    <h3>217</h3>
-                    <p>Unique organisations</p>
-                </div>
+      <ul>
+        <li><strong>16,970</strong> datasets</li>
+        <li><strong>217</strong> unique organisations</li>
+        <li><strong>16,703</strong> datasets with listed resources</li>
+        <li><strong>1,563</strong> datasets with machine-readable resources</li>
+        <li><strong>16,235</strong> datasets modified within 12 months</li>
+        <li><strong>1.65</strong> average resources per dataset</li>
+      </ul>
+    </section>
 
-                <div class="metric-card">
-                    <h3>16,703</h3>
-                    <p>Datasets with listed resources</p>
-                </div>
+    <section>
+      <h2>Key Findings</h2>
 
-                <div class="metric-card">
-                    <h3>1,563</h3>
-                    <p>Datasets with machine-readable resources</p>
-                </div>
+      <h3>1. Most catalogue records have at least one listed resource</h3>
+      <p>
+        Of the 16,970 datasets collected, 16,703 had at least one listed resource.
+        This suggests that most catalogue records provide some form of linked file,
+        document, service or data access point.
+      </p>
 
-                <div class="metric-card">
-                    <h3>16,235</h3>
-                    <p>Datasets modified within 12 months</p>
-                </div>
+      <h3>2. PDF is the most common resource format</h3>
+      <p>
+        PDF appeared in 12,711 datasets, making it by far the most common listed
+        resource format. This highlights that many catalogue records provide
+        document-style resources rather than structured analysis-ready data files.
+      </p>
 
-                <div class="metric-card">
-                    <h3>1.65</h3>
-                    <p>Average resources per dataset</p>
-                </div>
-            </div>
-        </section>
+      <h3>3. Machine-readable dataset availability is much lower</h3>
+      <p>
+        Using a rule-based classification, 1,563 datasets were identified as having
+        at least one machine-readable resource, such as CSV, JSON, Excel, API-like
+        services or geospatial formats.
+      </p>
 
-        <section>
-            <h2>Key Insights</h2>
+      <h3>4. Dataset publishing is concentrated across several large organisations</h3>
+      <p>
+        NSW Government, the NSW Department of Climate Change, Energy, the Environment
+        and Water, and the NSW Department of Planning, Housing and Infrastructure were
+        among the largest publishers by dataset count.
+      </p>
 
-            <ul>
-                <li>
-                    Most catalogue records include at least one listed resource, with 16,703 out of
-                    16,970 datasets having resources attached.
-                </li>
-                <li>
-                    PDF is by far the most common resource format, appearing in 12,711 datasets.
-                </li>
-                <li>
-                    Only 1,563 datasets were identified as having machine-readable resources using
-                    the project’s rule-based classification.
-                </li>
-                <li>
-                    NSW Government, the NSW Department of Climate Change, Energy, the Environment
-                    and Water, and the NSW Department of Planning, Housing and Infrastructure were
-                    among the largest publishers by dataset count.
-                </li>
-                <li>
-                    Spatial Services, Transport for NSW and environmental agencies had stronger
-                    representation among machine-readable and geospatial resources.
-                </li>
-            </ul>
-        </section>
+      <h3>5. Geospatial and API-style resources are important contributors</h3>
+      <p>
+        Spatial Services, Transport for NSW and environmental agencies had stronger
+        representation among machine-readable and geospatial resources, particularly
+        through ArcGIS REST, ESRI REST, WMS and related spatial service formats.
+      </p>
+    </section>
 
-        <section>
-            <h2>Charts and Visual Outputs</h2>
+    <section>
+      <h2>Visualisations</h2>
+      <p>
+        The charts below summarise the main analysis outputs, including dataset
+        publishing by organisation, common resource formats, resource availability
+        and machine-readable dataset coverage.
+      </p>
 
-            <div class="chart-gallery">
+      <div class="chart-grid">
 
-                <figure>
-                    <img src="assets/open-data-catalogue/top_10_organisations_by_dataset_count.png"
-                         alt="Top 10 organisations by dataset count">
-                    <figcaption>Top 10 organisations by dataset count.</figcaption>
-                </figure>
+        <div class="chart-card">
+          <img src="assets/open-data-catalogue/top_10_organisations_by_dataset_count.png" alt="Top 10 organisations by dataset count" loading="lazy">
+          <h3>Top organisations by dataset count</h3>
+          <p>
+            This chart ranks the organisations with the highest number of published
+            datasets in the Data.NSW catalogue.
+          </p>
+        </div>
 
-                <figure>
-                    <img src="assets/open-data-catalogue/top_10_resource_formats.png"
-                         alt="Top 10 resource formats">
-                    <figcaption>Most common resource formats in the Data.NSW catalogue.</figcaption>
-                </figure>
+        <div class="chart-card">
+          <img src="assets/open-data-catalogue/top_10_resource_formats.png" alt="Top 10 resource formats" loading="lazy">
+          <h3>Top resource formats</h3>
+          <p>
+            This chart shows the most common resource formats across the catalogue.
+            PDF is the dominant format, followed by ZIP and geospatial or API-style
+            resources.
+          </p>
+        </div>
 
-                <figure>
-                    <img src="assets/open-data-catalogue/top_10_machine_readable_organisations.png"
-                         alt="Top 10 organisations by machine-readable dataset count">
-                    <figcaption>Top organisations by machine-readable dataset count.</figcaption>
-                </figure>
+        <div class="chart-card">
+          <img src="assets/open-data-catalogue/top_10_machine_readable_organisations.png" alt="Top 10 organisations by machine-readable dataset count" loading="lazy">
+          <h3>Top machine-readable dataset publishers</h3>
+          <p>
+            This chart ranks organisations by the number of datasets that include at
+            least one machine-readable resource.
+          </p>
+        </div>
 
-                <figure>
-                    <img src="assets/open-data-catalogue/top_10_machine_readable_percentage_organisations.png"
-                         alt="Top organisations by machine-readable dataset percentage">
-                    <figcaption>
-                        Top organisations by machine-readable dataset share, limited to organisations
-                        with at least 50 datasets.
-                    </figcaption>
-                </figure>
+        <div class="chart-card">
+          <img src="assets/open-data-catalogue/top_10_machine_readable_percentage_organisations.png" alt="Top organisations by machine-readable dataset percentage" loading="lazy">
+          <h3>Machine-readable dataset share</h3>
+          <p>
+            This chart compares organisations by the percentage of their datasets that
+            include machine-readable resources, limited to organisations with at least
+            50 datasets.
+          </p>
+        </div>
 
-                <figure>
-                    <img src="assets/open-data-catalogue/resource_availability_summary.png"
-                         alt="Dataset resource availability by count">
-                    <figcaption>Dataset resource availability by count.</figcaption>
-                </figure>
+        <div class="chart-card">
+          <img src="assets/open-data-catalogue/resource_availability_summary.png" alt="Dataset resource availability by count" loading="lazy">
+          <h3>Resource availability by count</h3>
+          <p>
+            This chart compares the number of datasets with listed resources,
+            machine-readable resources, PDF resources, API-like resources and other
+            key resource categories.
+          </p>
+        </div>
 
-                <figure>
-                    <img src="assets/open-data-catalogue/resource_availability_percentage.png"
-                         alt="Dataset resource availability by percentage">
-                    <figcaption>Dataset resource availability as a percentage of all datasets.</figcaption>
-                </figure>
+        <div class="chart-card">
+          <img src="assets/open-data-catalogue/resource_availability_percentage.png" alt="Dataset resource availability by percentage" loading="lazy">
+          <h3>Resource availability by percentage</h3>
+          <p>
+            This chart shows resource availability as a share of all datasets,
+            highlighting the difference between general resource availability and
+            machine-readable resource availability.
+          </p>
+        </div>
 
-                <figure>
-                    <img src="assets/open-data-catalogue/datasets_by_latest_metadata_modified_year.png"
-                         alt="Datasets by latest metadata modified year">
-                    <figcaption>
-                        Datasets by latest metadata modified year. This reflects catalogue metadata
-                        update timing, not necessarily when the underlying dataset was originally created.
-                    </figcaption>
-                </figure>
+        <div class="chart-card">
+          <img src="assets/open-data-catalogue/datasets_by_latest_metadata_modified_year.png" alt="Datasets by latest metadata modified year" loading="lazy">
+          <h3>Datasets by latest metadata modified year</h3>
+          <p>
+            This chart shows the latest metadata modified year for catalogue records.
+            It reflects catalogue metadata update timing, not necessarily when the
+            underlying dataset was originally created or last updated.
+          </p>
+        </div>
 
-            </div>
-        </section>
+      </div>
+    </section>
 
-        <section>
-            <h2>Methodology</h2>
+    <section>
+      <h2>Project Outputs</h2>
+      <p>
+        The project produced cleaned datasets, summary tables and charts covering
+        organisation-level publishing patterns, resource format availability,
+        machine-readable dataset coverage and catalogue metadata update activity.
+      </p>
 
-            <h3>1. Data Collection</h3>
-            <p>
-                The collection script calls the Data.NSW CKAN package search API and uses pagination
-                to retrieve catalogue records. Each record is flattened into a structured CSV with fields
-                such as dataset title, organisation, metadata dates, resource count, resource formats,
-                resource URLs and tags.
-            </p>
+      <p>
+        For the full technical workflow, code and output charts, view the GitHub
+        repository below.
+      </p>
 
-            <h3>2. Data Cleaning</h3>
-            <p>
-                The cleaning script standardises text fields, parses metadata dates and creates additional
-                analysis fields such as modified year, resource availability flags, format indicators and
-                a machine-readable resource flag.
-            </p>
+      <a class="button" href="https://github.com/dzhang756/nsw-open-data-catalogue-tracker" target="_blank" rel="noopener">
+        View GitHub Repository
+      </a>
+    </section>
 
-            <h3>3. Analysis</h3>
-            <p>
-                The analysis script generates summary tables covering dataset counts by organisation,
-                resource format counts, recently modified datasets, modified year summaries and
-                machine-readable dataset availability by organisation.
-            </p>
+    <section>
+      <h2>Machine-Readable Classification</h2>
+      <p>
+        For this project, a dataset is treated as having a machine-readable resource
+        if it includes at least one eligible structured, tabular, API-like, Excel or
+        geospatial resource format or URL.
+      </p>
 
-            <h3>4. Visualisation</h3>
-            <p>
-                The chart script uses matplotlib to generate PNG charts for portfolio presentation,
-                including top organisations, common resource formats, resource availability and
-                machine-readable dataset coverage.
-            </p>
-        </section>
+      <p>
+        General document-style formats such as PDF are not counted as machine-readable,
+        and generic ZIP files are not counted unless their metadata clearly identifies
+        a structured or geospatial format.
+      </p>
 
-        <section>
-            <h2>Machine-Readable Classification</h2>
-            <p>
-                For this project, a dataset is treated as having a machine-readable resource if it includes
-                at least one eligible structured, tabular, API-like, Excel or geospatial resource format or URL.
-                General document-style formats such as PDF are not counted as machine-readable, and generic
-                ZIP files are not counted unless their metadata clearly identifies a structured or geospatial format.
-            </p>
+      <p>
+        This classification is rule-based and should be interpreted as an estimate
+        rather than an official measure of catalogue quality.
+      </p>
+    </section>
 
-            <p>
-                This classification is rule-based and should be interpreted as an estimate rather than an
-                official measure of catalogue quality.
-            </p>
-        </section>
+    <section>
+      <h2>Limitations</h2>
+      <p>
+        This analysis should be interpreted as an exploratory review of catalogue
+        metadata, not a full validation of every dataset or resource.
+      </p>
 
-        <section>
-            <h2>Limitations</h2>
+      <ul>
+        <li>The analysis is based on catalogue metadata, not the full contents of each dataset.</li>
+        <li>Resource format labels depend on how publishers entered metadata.</li>
+        <li>The project does not validate whether each resource URL is currently working.</li>
+        <li>Machine-readable classification is based on simple rule-based detection.</li>
+        <li>Metadata modified dates do not necessarily mean the underlying data was updated.</li>
+        <li>Some organisations may be grouped under broad or generic publisher names.</li>
+      </ul>
+    </section>
 
-            <ul>
-                <li>The analysis is based on catalogue metadata, not the full contents of each dataset.</li>
-                <li>Resource format labels depend on how publishers entered metadata.</li>
-                <li>The project does not validate whether each resource URL is currently working.</li>
-                <li>Machine-readable classification is based on simple rule-based detection.</li>
-                <li>Metadata modified dates do not necessarily mean the underlying data was updated.</li>
-                <li>Some organisations may be grouped under broad or generic publisher names.</li>
-            </ul>
-        </section>
+    <section>
+      <h2>Skills Demonstrated</h2>
+      <div class="skills-list">
+        <span class="skill">API Data Extraction</span>
+        <span class="skill">Pagination Handling</span>
+        <span class="skill">Data Profiling</span>
+        <span class="skill">Data Cleaning</span>
+        <span class="skill">Feature Creation</span>
+        <span class="skill">Exploratory Analysis</span>
+        <span class="skill">Metadata Quality Review</span>
+        <span class="skill">Visualisation</span>
+        <span class="skill">Insight Communication</span>
+      </div>
+    </section>
 
-        <section>
-            <h2>Future Improvements</h2>
+  </main>
 
-            <ul>
-                <li>Validate whether resource URLs are active.</li>
-                <li>Separate downloadable files from service/API endpoints.</li>
-                <li>Track catalogue changes over time using scheduled runs.</li>
-                <li>Add GitHub Actions to refresh outputs daily or weekly.</li>
-                <li>Publish a GitHub Pages dashboard for the project outputs.</li>
-                <li>Add topic and tag analysis.</li>
-                <li>Analyse dataset descriptions using keyword extraction.</li>
-            </ul>
-        </section>
-
-        <section class="back-link">
-            <a href="index.html">← Back to Home</a>
-        </section>
-
-    </main>
+  <footer>
+    <p>© 2026 David Zhang</p>
+    <p>Built with GitHub Pages.</p>
+  </footer>
 
 </body>
 </html>
