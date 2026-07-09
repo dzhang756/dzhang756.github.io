@@ -14,22 +14,6 @@ https://dzhang756.github.io
 
 ## Portfolio Projects
 
-### NSW Road Traffic Volume Analysis
-
-A Python data analysis project using Transport for NSW traffic count data to explore recorded road traffic volumes by station, road corridor, suburb, LGA and year.
-
-The project includes data download, profiling, cleaning, preparation, exploratory analysis, station coverage review and visualisation.
-
-**Project page:**  
-```text
-https://dzhang756.github.io/traffic-volume-analysis.html
-```
-
-**GitHub repository:**  
-```text
-https://github.com/dzhang756/nsw-traffic-volume-analysis
-```
-
 ### NSW Open Data Catalogue Tracker
 
 A Python data collection and analysis project using the Data.NSW CKAN API to collect, clean, analyse and visualise metadata about public datasets published by NSW Government organisations.
@@ -44,6 +28,22 @@ https://dzhang756.github.io/nsw-open-data-catalogue-tracker.html
 **GitHub repository:**  
 ```text
 https://github.com/dzhang756/nsw-open-data-catalogue-tracker
+```
+
+### NSW Road Traffic Volume Analysis
+
+A Python data analysis project using Transport for NSW traffic count data to explore recorded road traffic volumes by station, road corridor, suburb, LGA and year.
+
+The project includes data download, profiling, cleaning, preparation, exploratory analysis, station coverage review and visualisation.
+
+**Project page:**  
+```text
+https://dzhang756.github.io/traffic-volume-analysis.html
+```
+
+**GitHub repository:**  
+```text
+https://github.com/dzhang756/nsw-traffic-volume-analysis
 ```
 
 ## Tools Used
