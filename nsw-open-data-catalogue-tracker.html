@@ -10,7 +10,7 @@
 
   <header>
     <h1>NSW Open Data Catalogue Tracker</h1>
-    <p>Python data project using the Data.NSW catalogue API</p>
+    <p>Python data analysis project using the Data.NSW catalogue API</p>
   </header>
 
   <nav>
@@ -29,8 +29,11 @@
         made available for reuse.
       </p>
       <p>
-        The project follows a full data workflow, including API data collection,
-        cleaning, feature creation, summary analysis and visualisation.
+        The project follows an end-to-end data workflow, including API data collection,
+        nested metadata flattening, cleaning, feature creation, summary analysis and
+        visualisation. The analysis focuses on catalogue-level patterns such as
+        publisher activity, resource formats, metadata update activity and
+        machine-readable dataset availability.
       </p>
     </section>
 
@@ -42,9 +45,7 @@
       </p>
 
       <p>
-        <strong>
-          API endpoint:
-        </strong>
+        <strong>API endpoint:</strong>
         <a href="https://data.nsw.gov.au/data/api/3/action/package_search" target="_blank" rel="noopener">
           Data.NSW CKAN package search API
         </a>
@@ -58,16 +59,18 @@
       </p>
       <p>
         <strong>
-          How are datasets in the Data.NSW catalogue published across organisations,
-          resource formats and machine-readable access types?
+          How accessible and analysis-ready are datasets published through the NSW
+          Open Data catalogue?
         </strong>
       </p>
-      <br>
-        Supporting questions:
+
+      <p>Supporting questions included:</p>
       <ul>
+        <li>How many datasets are available in the catalogue?</li>
         <li>Which organisations publish the most datasets?</li>
         <li>Which resource formats are most common across the catalogue?</li>
-        <li>How many datasets include resources that appear to be machine-readable?</li>
+        <li>What share of datasets include listed resources?</li>
+        <li>What share of datasets include machine-readable resources?</li>
         <li>Which organisations publish the most machine-readable datasets?</li>
         <li>How recently have catalogue metadata records been modified?</li>
       </ul>
@@ -81,11 +84,31 @@
         <span class="skill">pandas</span>
         <span class="skill">matplotlib</span>
         <span class="skill">GitHub Codespaces</span>
-        <span class="skill">GitHub</span>
+        <span class="skill">Git / GitHub</span>
         <span class="skill">API Data Collection</span>
         <span class="skill">Data Cleaning</span>
         <span class="skill">Data Analysis</span>
+        <span class="skill">Data Visualisation</span>
       </div>
+    </section>
+
+    <section>
+      <h2>Project Workflow</h2>
+      <p>
+        The project was structured as a reproducible metadata analysis workflow,
+        moving from live API collection through to cleaned datasets, summary tables
+        and visual charts.
+      </p>
+
+      <ul>
+        <li>Collected catalogue metadata from the Data.NSW CKAN API using pagination.</li>
+        <li>Flattened nested API responses into structured CSV datasets.</li>
+        <li>Cleaned and standardised metadata fields for analysis.</li>
+        <li>Created features for resource availability, update timing and machine-readable classification.</li>
+        <li>Analysed dataset counts by organisation, resource format and metadata update year.</li>
+        <li>Estimated machine-readable dataset availability using rule-based detection.</li>
+        <li>Exported summary tables and charts for portfolio presentation.</li>
+      </ul>
     </section>
 
     <section>
@@ -106,6 +129,7 @@
         <li><strong>1,563</strong> datasets with machine-readable resources</li>
         <li><strong>16,235</strong> datasets modified within 12 months</li>
         <li><strong>1.65</strong> average resources per dataset</li>
+        <li><strong>1.0</strong> median resources per dataset</li>
       </ul>
     </section>
 
@@ -118,9 +142,9 @@
       </p>
 
       <p>
-        General document-style formats such as PDF are not counted as machine-readable
-        and generic ZIP files are not counted unless their metadata clearly identifies
-        a structured or geospatial format.
+        General document-style formats such as PDF are not counted as machine-readable.
+        Generic ZIP files are not counted unless their metadata clearly identifies a
+        structured or geospatial format.
       </p>
 
       <p>
@@ -128,7 +152,7 @@
         rather than an official measure of catalogue quality.
       </p>
     </section>
-    
+
     <section>
       <h2>Key Findings</h2>
 
@@ -141,15 +165,15 @@
 
       <h3>2. PDF is the most common resource format</h3>
       <p>
-        PDF appeared in 12,711 datasets, making it by far the most common listed
-        resource format. This highlights that many catalogue records provide
-        document-style resources rather than structured analysis-ready data files.
+        PDF appeared in 12,711 datasets, making it the most common listed resource
+        format. This highlights that many catalogue records provide document-style
+        resources rather than structured, analysis-ready data files.
       </p>
 
       <h3>3. Machine-readable dataset availability is much lower</h3>
       <p>
-        Using a rule-based classification, 1,563 datasets were identified as having
-        at least one machine-readable resource, such as CSV, JSON, Excel, API-like
+        Using rule-based classification, 1,563 datasets were identified as having at
+        least one machine-readable resource, such as CSV, JSON, Excel, API-like
         services or geospatial formats.
       </p>
 
@@ -172,8 +196,8 @@
       <h2>Visualisations</h2>
       <p>
         The charts below summarise the main analysis outputs, including dataset
-        publishing by organisation, common resource formats, resource availability
-        and machine-readable dataset coverage.
+        publishing by organisation, common resource formats, resource availability,
+        machine-readable dataset coverage and metadata update activity.
       </p>
 
       <div class="chart-grid">
@@ -240,9 +264,9 @@
           <img src="assets/open-data-catalogue/datasets_by_latest_metadata_modified_year.png" alt="Datasets by latest metadata modified year" loading="lazy">
           <h3>Datasets by latest metadata modified year</h3>
           <p>
-            This chart shows the latest metadata modified year for catalogue records.
-            It reflects catalogue metadata update timing, not necessarily when the
-            underlying dataset was originally created or last updated.
+            This chart shows catalogue records grouped by their latest metadata
+            modified year. It reflects catalogue metadata update timing, not
+            necessarily when the underlying dataset was created or last updated.
           </p>
         </div>
 
@@ -258,8 +282,8 @@
       </p>
 
       <p>
-        For the full technical workflow, code and output charts, view the GitHub
-        repository below.
+        For the full technical workflow, source code, methodology and output files,
+        view the GitHub repository below.
       </p>
 
       <a class="button" href="https://github.com/dzhang756/nsw-open-data-catalogue-tracker" target="_blank" rel="noopener">
@@ -281,6 +305,7 @@
         <li>Machine-readable classification is based on simple rule-based detection.</li>
         <li>Metadata modified dates do not necessarily mean the underlying data was updated.</li>
         <li>Some organisations may be grouped under broad or generic publisher names.</li>
+        <li>The analysis does not assess the accuracy, completeness or usability of the underlying datasets.</li>
       </ul>
     </section>
 
@@ -289,6 +314,7 @@
       <div class="skills-list">
         <span class="skill">API Data Extraction</span>
         <span class="skill">Pagination Handling</span>
+        <span class="skill">Nested Data Flattening</span>
         <span class="skill">Data Profiling</span>
         <span class="skill">Data Cleaning</span>
         <span class="skill">Feature Creation</span>
