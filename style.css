@@ -166,6 +166,77 @@ section h2 {
   margin-top: 0;
 }
 
+/* Certification cards */
+.certification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.certification-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  background-color: #f9fafb;
+}
+
+.certification-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.certification-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background-color: white;
+  padding: 8px;
+}
+
+.certification-card h3 {
+  margin: 0;
+  color: #1e3a8a;
+  font-size: 22px;
+}
+
+.certification-provider {
+  margin: 4px 0 0;
+  color: #4b5563;
+  font-weight: bold;
+}
+
+.certification-card p {
+  margin-bottom: 0;
+}
+
+.certification-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.certification-meta span {
+  background-color: #e0ecff;
+  color: #1e3a8a;
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.certification-actions {
+  margin-top: 16px;
+}
+
+.certification-actions .button {
+  margin-top: 0;
+}
+
 /* Skills tags */
 .skills-list {
   display: flex;
@@ -370,12 +441,22 @@ footer .footer-small {
     grid-template-columns: 1fr;
   }
 
-  .project-card {
+  .project-card,
+  .certification-card {
     padding: 22px;
   }
 
   .project-buttons {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .certification-header {
+    align-items: flex-start;
+  }
+
+  .certification-logo {
+    width: 56px;
+    height: 56px;
   }
 }
