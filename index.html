@@ -9,14 +9,28 @@
 <body>
 
   <header>
-    <h1>David Zhang</h1>
-    <p>Data Professional Portfolio</p>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>David Zhang</h1>
+        <p class="hero-subtitle">Data Professional</p>
+        <p class="hero-summary">
+          Practical data analysis projects using Python, public datasets, data cleaning,
+          exploratory analysis and visualisation.
+        </p>
+        <a class="button hero-button" href="#projects">View Personal Projects</a>
+      </div>
+
+      <div class="hero-photo">
+        <img src="assets/profile-photo.png" alt="Professional headshot of David Zhang">
+      </div>
+    </div>
   </header>
 
   <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="contact.html">Contact</a>
   </nav>
 
   <main>
@@ -24,55 +38,71 @@
     <section id="about">
       <h2>About Me</h2>
       <p>
-        I am building this portfolio to showcase practical data analysis,
-        automation, dashboarding and web scraping projects using public datasets.
-        My goal is to demonstrate how I approach data problems, clean and transform
-        information, communicate insights and build useful reporting outputs.
+        I am a data professional with experience across reporting, dashboard development,
+        process automation and data analysis in government and enterprise environments.
+        This portfolio showcases practical projects that demonstrate how I approach data
+        problems, prepare and analyse datasets, communicate insights and build useful
+        reporting outputs.
+      </p>
+      <p>
+        My current portfolio focuses on Python-based analysis of public datasets, with
+        projects covering data collection, cleaning, feature creation, exploratory analysis,
+        visualisation and clear presentation of findings.
       </p>
     </section>
 
     <section id="projects">
-      <h2>Projects</h2>
+      <h2>Personal Projects</h2>
+      <p class="section-intro">
+        These projects demonstrate practical data extraction and analysis skills using publicly available
+        datasets, with a focus on reproducible workflows, professional documentation and
+        clear insight communication.
+      </p>
 
-      <div class="project-grid">
+      <div class="project-list">
+
+        <div class="project-card">
+          <h3>NSW Open Data Catalogue Tracker</h3>
+          <p>
+            A Python data collection and analysis project using the Data.NSW CKAN API to
+            collect, clean, analyse and visualise metadata about NSW Government datasets.
+            The project explores publisher activity, resource formats, machine-readable
+            dataset availability and catalogue update patterns.
+          </p>
+          <a class="button" href="nsw-open-data-catalogue-tracker.html">View Project</a>
+          <a class="button button-secondary" href="https://github.com/dzhang756/nsw-open-data-catalogue-tracker" target="_blank" rel="noopener">View GitHub</a>
+        </div>
 
         <div class="project-card">
           <h3>NSW Road Traffic Volume Analysis</h3>
           <p>
-            Analysed public Transport for NSW traffic count data using Python to explore
-            measured traffic volumes by station, road corridor, LGA and year, with
-            additional checks for data quality and station coverage.
+            A Python data analysis project using Transport for NSW traffic count data to
+            explore recorded traffic volumes by station, road corridor, suburb, LGA and
+            year. The project includes data cleaning, station coverage checks, summary
+            analysis and visualisation.
           </p>
           <a class="button" href="traffic-volume-analysis.html">View Project</a>
+          <a class="button button-secondary" href="https://github.com/dzhang756/nsw-traffic-volume-analysis" target="_blank" rel="noopener">View GitHub</a>
         </div>
 
         <div class="project-card">
-          <h3>NSW Open Data Catalogue Analysis</h3>
+          <h3>Web Scraper Project</h3>
           <p>
-            <p>
-              A Python-based open data analysis project that uses the Data.NSW catalogue API
-              to collect, clean and analyse metadata on NSW Government datasets, highlighting
-              publishing patterns, resource formats and machine-readable data availability.
-            </p>
+            An upcoming Python project focused on collecting publicly available web data,
+            transforming it into a structured dataset and presenting useful insights
+            through summary analysis and visual outputs.
           </p>
-          <a class="button" href="nsw-open-data-catalogue-tracker.html">View Project</a>
+          <span class="button button-disabled">Coming Soon</span>
         </div>
-        
-    </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        Please feel free to connect with me or view my project work.
-      </p>
-      <a class="button" href="#">LinkedIn</a>
-      <a class="button" href="#">GitHub</a>
+      </div>
     </section>
 
   </main>
 
   <footer>
-    <p>© 2026 David Zhang. Portfolio website built with GitHub Pages.</p>
+    <p>Website built with GitHub Pages.</p>
+    <p class="footer-small">© 2026 David Zhang.</p>
   </footer>
 
 </body>
