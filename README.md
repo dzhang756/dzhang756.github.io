@@ -2,7 +2,7 @@
 
 A personal portfolio website built with HTML, CSS and GitHub Pages to showcase data analysis projects using Python, public datasets, data cleaning, exploratory analysis and data visualisation.
 
-The site is designed to present project work in a clear, recruiter-friendly format, with individual project pages summarising the objective, data source, methodology, key findings, visualisations and links to the full GitHub repositories.
+The site is designed to present project work in a clear and friendly format, with individual project pages summarising the objective, data source, methodology, key findings, visualisations and links to the full GitHub repositories.
 
 ## Live Website
 
@@ -46,36 +46,6 @@ https://dzhang756.github.io/nsw-open-data-catalogue-tracker.html
 https://github.com/dzhang756/nsw-open-data-catalogue-tracker
 ```
 
-## Website Structure
-
-```text
-dzhang756.github.io/
-│
-├── index.html
-├── traffic-volume-analysis.html
-├── nsw-open-data-catalogue-tracker.html
-├── style.css
-│
-├── assets/
-│   ├── traffic-volume/
-│   │   ├── top_15_robust_overall_stations.png
-│   │   ├── top_15_robust_overall_road_suburbs.png
-│   │   ├── top_15_robust_overall_lgas.png
-│   │   ├── yearly_average_all_vs_stable_10_plus.png
-│   │   └── overall_records_by_year.png
-│   │
-│   └── open-data-catalogue/
-│       ├── top_10_organisations_by_dataset_count.png
-│       ├── top_10_resource_formats.png
-│       ├── top_10_machine_readable_organisations.png
-│       ├── top_10_machine_readable_percentage_organisations.png
-│       ├── resource_availability_summary.png
-│       ├── resource_availability_percentage.png
-│       └── datasets_by_latest_metadata_modified_year.png
-│
-└── README.md
-```
-
 ## Tools Used
 
 - HTML
@@ -83,43 +53,14 @@ dzhang756.github.io/
 - GitHub Pages
 - Git / GitHub
 
-## Skills Demonstrated
-
-- Portfolio website development
-- Project documentation
-- Technical communication
-- Data project presentation
-- HTML page structure
-- CSS styling
-- GitHub Pages deployment
-- Linking project pages to source repositories
-
-## Purpose
-
-The purpose of this website is to present data analysis projects in a clear and accessible format for job applications, interviews and professional portfolio review.
-
-Each project page is designed to provide a concise summary of:
-
-- Project objective
-- Data source
-- Tools used
-- Analysis workflow
-- Key findings
-- Visual outputs
-- Limitations
-- Skills demonstrated
-- Link to the full GitHub repository
-
 ## Future Improvements
 
 Potential future improvements include:
 
 - Add more data analysis projects.
 - Add a dedicated resume or experience page.
-- Add screenshots or preview cards for each project.
 - Improve responsive design for mobile devices.
 - Add interactive charts or dashboards.
-- Add a contact form or improved contact section.
 - Continue refining project pages based on feedback.
 
 ## Status
