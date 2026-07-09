@@ -10,7 +10,7 @@
 
   <header>
     <h1>NSW Road Traffic Volume Analysis</h1>
-    <p>Python data project using TfNSW traffic data</p>
+    <p>Python data analysis project using Transport for NSW traffic count data</p>
   </header>
 
   <nav>
@@ -25,12 +25,15 @@
       <h2>Project Overview</h2>
       <p>
         This project analyses publicly available NSW road traffic count data from
-        Transport for NSW to explore how measured traffic volumes vary by road
-        location, suburb, LGA and year.
+        Transport for NSW to explore how measured traffic volumes vary by traffic
+        count station, road corridor, suburb, local government area and year.
       </p>
       <p>
-        The project follows a full data workflow, including data download,
-        profiling, cleaning, preparation, analysis and visualisation.
+        The project follows an end-to-end data workflow, including data download,
+        profiling, cleaning, preparation, analysis and visualisation. The final
+        analysis focuses on a cleaned overall traffic dataset to avoid misleading
+        comparisons across different reporting periods, vehicle classes and
+        directional records.
       </p>
     </section>
 
@@ -40,17 +43,15 @@
         This project uses publicly available traffic count data from Transport for NSW,
         accessed through the Data.NSW open data portal.
       </p>
-    
+
       <p>
-        <strong>
-        Original dataset:
-        </strong>
+        <strong>Original dataset:</strong>
         <a href="https://data.nsw.gov.au/data/dataset/2-nsw-roads-traffic-volume-counts-api" target="_blank" rel="noopener">
           NSW Roads Traffic Volume Counts API
         </a>
       </p>
     </section>
-    
+
     <section>
       <h2>Objective</h2>
       <p>
@@ -62,8 +63,8 @@
           road corridors, LGAs and years?
         </strong>
       </p>
-      <br>
-        Supporting questions:
+
+      <p>Supporting questions included:</p>
       <ul>
         <li>Which measured traffic count stations have the highest average overall traffic counts?</li>
         <li>Which road and suburb combinations show the highest measured traffic counts?</li>
@@ -72,7 +73,7 @@
         <li>How does changing station coverage affect interpretation of yearly trends?</li>
       </ul>
     </section>
- 
+
     <section>
       <h2>Tools Used</h2>
       <div class="skills-list">
@@ -80,17 +81,43 @@
         <span class="skill">pandas</span>
         <span class="skill">matplotlib</span>
         <span class="skill">GitHub Codespaces</span>
-        <span class="skill">GitHub</span>
+        <span class="skill">Git / GitHub</span>
         <span class="skill">Data Cleaning</span>
         <span class="skill">Data Analysis</span>
+        <span class="skill">Data Visualisation</span>
       </div>
+    </section>
+
+    <section>
+      <h2>Project Workflow</h2>
+      <p>
+        The project was structured as a reproducible analysis workflow, moving from
+        raw public data through to cleaned outputs, summary tables and visual charts.
+      </p>
+
+      <ul>
+        <li>Downloaded public traffic count data from the NSW open data API.</li>
+        <li>Profiled the raw station reference and yearly summary datasets.</li>
+        <li>Cleaned and merged station metadata with yearly traffic records.</li>
+        <li>Inspected reporting fields to identify comparable analysis records.</li>
+        <li>Created a focused overall traffic dataset for consistent comparison.</li>
+        <li>Analysed traffic counts by station, road/suburb, LGA and year.</li>
+        <li>Compared yearly trends against station coverage to avoid over-interpreting changes.</li>
+        <li>Exported summary tables and charts for portfolio presentation.</li>
+      </ul>
     </section>
 
     <section>
       <h2>Analysis Dataset</h2>
       <p>
-        The analysis uses a focused “overall traffic” dataset to avoid mixing
-        different reporting periods, vehicle classes and directional records.
+        The analysis uses a focused <strong>overall traffic</strong> dataset. Records
+        were filtered to focus on full-year, all-days, combined-direction and total
+        vehicle-style records where possible.
+      </p>
+
+      <p>
+        This reduced the risk of comparing inconsistent record types, such as
+        weekday-only counts, directional counts or specific vehicle-class counts.
       </p>
 
       <p>The final focused dataset contains:</p>
@@ -101,6 +128,9 @@
         <li><strong>151</strong> LGAs</li>
         <li><strong>898</strong> suburbs</li>
         <li>Data from <strong>2006 to 2025</strong></li>
+        <li><strong>24,552.64</strong> average traffic count</li>
+        <li><strong>16,685</strong> median traffic count</li>
+        <li><strong>175,816</strong> maximum traffic count</li>
       </ul>
     </section>
 
@@ -109,9 +139,9 @@
 
       <h3>1. High measured traffic counts are concentrated around major road corridors</h3>
       <p>
-        The highest average measured traffic counts appeared around major routes
-        such as Bradfield Highway, Western Motorway, Western Distributor,
-        Southern Cross Drive and South Western Motorway.
+        The highest average measured traffic counts appeared around major routes such
+        as Bradfield Highway, Western Motorway, Western Distributor, Southern Cross
+        Drive and South Western Motorway.
       </p>
 
       <h3>2. Station-level analysis is more reliable than broad suburb or LGA claims</h3>
@@ -121,18 +151,25 @@
         total traffic across an entire suburb or LGA.
       </p>
 
-      <h3>3. Yearly trends are affected by station coverage</h3>
+      <h3>3. Yearly trends are affected by changing station coverage</h3>
       <p>
-        Average recorded traffic counts generally declined after the 2013–2014
-        period. However, the number of available records also changes substantially
-        by year, so the trend should be interpreted carefully.
+        Average recorded traffic counts generally declined after the 2013-2014 period.
+        However, the number of available records also changes substantially by year,
+        so yearly movement should be interpreted alongside station coverage.
       </p>
 
-      <h3>4. Data quality should be considered before drawing conclusions</h3>
+      <h3>4. Stable-station comparisons provide better trend context</h3>
+      <p>
+        Comparing all available records against stations observed for at least 10
+        years helps separate possible traffic movement from changes in which stations
+        are included in each year of the dataset.
+      </p>
+
+      <h3>5. Data quality should be considered before drawing conclusions</h3>
       <p>
         The dataset includes quality rating fields and some missing quality values.
-        The analysis includes data quality summaries to support more careful
-        interpretation.
+        The analysis includes data quality checks to support more careful
+        interpretation of the results.
       </p>
     </section>
 
@@ -143,11 +180,11 @@
         measured stations, road/suburb combinations, LGA-level comparisons and yearly
         trend patterns.
       </p>
-    
+
       <div class="chart-grid">
-    
+
         <div class="chart-card">
-          <img src="assets/traffic-volume/top_15_robust_overall_stations.png" alt="Top 15 measured traffic stations by average overall traffic count">
+          <img src="assets/traffic-volume/top_15_robust_overall_stations.png" alt="Top 15 measured traffic stations by average overall traffic count" loading="lazy">
           <h3>Top measured traffic stations</h3>
           <p>
             This chart ranks measured traffic count stations by average overall traffic
@@ -155,18 +192,18 @@
             requires at least five observed records.
           </p>
         </div>
-    
+
         <div class="chart-card">
-          <img src="assets/traffic-volume/top_15_robust_overall_road_suburbs.png" alt="Top 15 road and suburb combinations by average overall traffic count">
+          <img src="assets/traffic-volume/top_15_robust_overall_road_suburbs.png" alt="Top 15 road and suburb combinations by average overall traffic count" loading="lazy">
           <h3>Top road/suburb combinations</h3>
           <p>
             This view highlights road and suburb combinations with the highest average
             measured traffic counts.
           </p>
         </div>
-    
+
         <div class="chart-card">
-          <img src="assets/traffic-volume/top_15_robust_overall_lgas.png" alt="Top 15 LGAs by average measured traffic count">
+          <img src="assets/traffic-volume/top_15_robust_overall_lgas.png" alt="Top 15 LGAs by average measured traffic count" loading="lazy">
           <h3>Top LGAs by measured traffic counts</h3>
           <p>
             This chart compares LGAs based on average traffic counts at available
@@ -174,9 +211,9 @@
             each LGA.
           </p>
         </div>
-    
+
         <div class="chart-card">
-          <img src="assets/traffic-volume/yearly_average_all_vs_stable_10_plus.png" alt="Yearly average traffic count comparison between all records and stable 10 plus year stations">
+          <img src="assets/traffic-volume/yearly_average_all_vs_stable_10_plus.png" alt="Yearly average traffic count comparison between all records and stable 10 plus year stations" loading="lazy">
           <h3>Yearly trend and station coverage</h3>
           <p>
             This chart compares all available overall records against a more stable
@@ -184,9 +221,9 @@
             needs to be considered when interpreting trends.
           </p>
         </div>
-    
+
         <div class="chart-card">
-          <img src="assets/traffic-volume/overall_records_by_year.png" alt="Number of overall traffic count records by year">
+          <img src="assets/traffic-volume/overall_records_by_year.png" alt="Number of overall traffic count records by year" loading="lazy">
           <h3>Record coverage by year</h3>
           <p>
             This chart shows how the number of available records changes by year,
@@ -194,21 +231,21 @@
             care.
           </p>
         </div>
-    
+
       </div>
     </section>
-    
+
     <section>
       <h2>Project Outputs</h2>
       <p>
-        The project produced summary tables and charts covering top measured
-        stations, road/suburb combinations, LGA-level summaries and yearly trend
-        comparisons.
+        The project produced cleaned analysis datasets, summary tables and charts
+        covering top measured stations, road/suburb combinations, LGA-level summaries,
+        yearly traffic trends and station coverage comparisons.
       </p>
 
       <p>
-        For the full technical workflow, code and output charts, view the GitHub
-        repository below.
+        For the full technical workflow, source code, methodology and output files,
+        view the GitHub repository below.
       </p>
 
       <a class="button" href="https://github.com/dzhang756/nsw-traffic-volume-analysis" target="_blank" rel="noopener">
@@ -228,7 +265,9 @@
         <li>Station coverage varies by year.</li>
         <li>Some roads, suburbs and LGAs have more monitoring coverage than others.</li>
         <li>Some records have missing location or quality information.</li>
+        <li>Average traffic counts can be affected by changes in which stations are available each year.</li>
         <li>Results should not be interpreted as total traffic by suburb or LGA.</li>
+        <li>The analysis does not model population growth, road network changes or external events.</li>
       </ul>
     </section>
 
@@ -240,6 +279,7 @@
         <span class="skill">Data Cleaning</span>
         <span class="skill">Feature Creation</span>
         <span class="skill">Exploratory Analysis</span>
+        <span class="skill">Coverage Analysis</span>
         <span class="skill">Data Quality Review</span>
         <span class="skill">Visualisation</span>
         <span class="skill">Insight Communication</span>
@@ -249,7 +289,7 @@
   </main>
 
   <footer>
-    <p>© 2026 David Zhang </p>
+    <p>© 2026 David Zhang</p>
     <p>Built with GitHub Pages.</p>
   </footer>
 
