@@ -110,7 +110,7 @@
       <p>
         <strong>
           How can AI-assisted hybrid search make NSW Government open datasets
-          easier to discover using natural-language queries, and when can it
+          easier to discover using natural-language queries and when can it
           improve on standard catalogue search?
         </strong>
       </p>
@@ -237,8 +237,19 @@
 
       <p>
         The semantic search component uses the
-        <strong>sentence-transformers/all-MiniLM-L6-v2</strong> model to convert
-        catalogue records and user queries into numerical embeddings.
+        <a
+          href="https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2"
+          target="_blank"
+          rel="noopener">
+          <strong>sentence-transformers/all-MiniLM-L6-v2</strong>
+        </a>
+        model to convert catalogue records and user queries into numerical
+        <a
+          href="https://en.wikipedia.org/wiki/Sentence_embedding"
+          target="_blank"
+          rel="noopener">
+          sentence embeddings
+        </a>.
       </p>
 
       <p>
@@ -250,9 +261,15 @@
       <h3>2. Field-Aware Keyword Search</h3>
 
       <p>
-        The keyword component uses TF-IDF retrieval across separate metadata fields
-        rather than treating each catalogue record as one undifferentiated block of
-        text.
+        The keyword component uses
+        <a
+          href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf"
+          target="_blank"
+          rel="noopener">
+          TF-IDF
+        </a>
+        retrieval across separate metadata fields rather than treating each
+        catalogue record as one undifferentiated block of text.
       </p>
 
       <p>The indexed fields include:</p>
@@ -268,8 +285,15 @@
       <h3>3. Hybrid Ranking</h3>
 
       <p>
-        Semantic and keyword candidates are combined using weighted reciprocal rank
-        fusion, with a stronger weighting applied to semantic similarity while still
+        Semantic and keyword candidates are combined using weighted
+        <a
+          href="https://research.google/pubs/reciprocal-rank-fusion-outperforms-condorcet-and-individual-rank-learning-methods/"
+          target="_blank"
+          rel="noopener">
+          reciprocal rank fusion
+        </a>.
+        This combines the ranking positions produced by the two retrieval methods,
+        with a stronger weighting applied to semantic similarity while still
         preserving useful exact keyword matches.
       </p>
 
