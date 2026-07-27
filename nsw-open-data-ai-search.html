@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NSW Open Data AI Search | David Zhang</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>NSW Open Data AI Search</h1>
+    <p>AI-assisted hybrid search application for the Data.NSW catalogue</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="certifications.html">Certifications</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+
+    <section>
+      <h2>Project Overview</h2>
+
+      <p>
+        NSW Open Data AI Search is a publicly hosted search application designed
+        to make NSW Government datasets easier to discover using everyday language.
+        It searches approximately 17,000 catalogue records collected from the
+        Data.NSW open data portal.
+      </p>
+
+      <p>
+        The application combines semantic search with field-aware keyword retrieval.
+        Semantic search identifies datasets with conceptually similar content, while
+        keyword search preserves strong matches across titles, descriptions,
+        organisations, subjects and resource information.
+      </p>
+
+      <p>
+        The project also evaluates whether this hybrid approach can improve dataset
+        discovery for selected queries when compared with the standard Data.NSW
+        catalogue search. This includes queries that use everyday wording, combine
+        several search concepts or contain minor spelling errors.
+      </p>
+
+      <p>
+        The finished solution includes a responsive Streamlit interface, structured
+        filters, relevance controls, dataset-series grouping, result sorting and an
+        automated daily refresh pipeline using GitHub Actions and GitHub Releases.
+      </p>
+    </section>
+
+    <section>
+      <h2>Live Application</h2>
+
+      <p>
+        The completed search application is publicly available through Streamlit
+        Community Cloud and works across desktop and mobile devices.
+      </p>
+
+      <p>
+        Users can enter a natural-language query, browse recently updated datasets,
+        apply structured filters and open the original catalogue record on Data.NSW.
+      </p>
+
+      <a
+        class="button"
+        href="https://nsw-open-data-ai-search.streamlit.app/"
+        target="_blank"
+        rel="noopener">
+        Open Live Application
+      </a>
+    </section>
+
+    <section>
+      <h2>Data Source</h2>
+
+      <p>
+        The application uses publicly available catalogue metadata from the
+        Data.NSW open data portal, accessed through the CKAN package search API.
+      </p>
+
+      <p>
+        API endpoint:
+        <a
+          href="https://data.nsw.gov.au/data/api/3/action/package_search"
+          target="_blank"
+          rel="noopener">
+          Data.NSW CKAN package search API
+        </a>
+      </p>
+
+      <p>
+        The collected metadata includes dataset titles, descriptions,
+        organisations, tags, groups, modification dates, resource formats,
+        resource URLs and other catalogue fields used for search and filtering.
+      </p>
+    </section>
+
+    <section>
+      <h2>Objective</h2>
+
+      <p>
+        The main question explored in this project was:
+      </p>
+
+      <p>
+        <strong>
+          How can AI-assisted hybrid search make NSW Government open datasets
+          easier to discover using natural-language queries, and when can it
+          improve on standard catalogue search?
+        </strong>
+      </p>
+
+      <p>Supporting questions included:</p>
+
+      <ul>
+        <li>
+          Can semantic search retrieve relevant datasets when a user's wording
+          differs from the catalogue metadata or contains minor spelling errors?
+        </li>
+        <li>
+          Can keyword retrieval preserve exact matches across dataset titles,
+          organisations, subjects and resource information?
+        </li>
+        <li>
+          How can semantic and keyword results be combined into one practical
+          ranking?
+        </li>
+        <li>
+          How can weak or unrelated results be removed before they are displayed?
+        </li>
+        <li>
+          How do the application's highest-ranked results compare with Data.NSW
+          search for the same query?
+        </li>
+        <li>
+          Can the application recover useful results when the standard catalogue
+          search returns no matches?
+        </li>
+        <li>
+          How can repeated records from the same dataset series be presented more
+          clearly?
+        </li>
+        <li>
+          How can users narrow results by organisation, format, category,
+          modification date and machine-readable availability?
+        </li>
+        <li>
+          How can the catalogue and search indexes be refreshed automatically
+          without interrupting the hosted application?
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Tools Used</h2>
+
+      <div class="skills-list">
+        <span class="skill">Python</span>
+        <span class="skill">Streamlit</span>
+        <span class="skill">Sentence Transformers</span>
+        <span class="skill">scikit-learn</span>
+        <span class="skill">NumPy</span>
+        <span class="skill">SciPy</span>
+        <span class="skill">joblib</span>
+        <span class="skill">requests</span>
+        <span class="skill">GitHub Actions</span>
+        <span class="skill">GitHub Releases</span>
+        <span class="skill">GitHub Codespaces</span>
+        <span class="skill">Git / GitHub</span>
+        <span class="skill">CKAN API</span>
+        <span class="skill">Semantic Search</span>
+        <span class="skill">Keyword Search</span>
+        <span class="skill">Search Evaluation</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Project Workflow</h2>
+
+      <p>
+        The project follows an end-to-end search, deployment and refresh workflow,
+        moving from live catalogue collection through to production search indexes
+        and a publicly hosted application.
+      </p>
+
+      <ul>
+        <li>
+          Collected the complete Data.NSW catalogue through the CKAN API using
+          paginated requests.
+        </li>
+        <li>
+          Cleaned and standardised nested catalogue metadata.
+        </li>
+        <li>
+          Validated required fields, identifiers, resource metadata and output
+          structure.
+        </li>
+        <li>
+          Generated compact search documents from titles, descriptions,
+          organisations, subjects and resource information.
+        </li>
+        <li>
+          Created semantic embeddings using a Sentence Transformers model.
+        </li>
+        <li>
+          Created field-aware TF-IDF indexes for multiple metadata fields.
+        </li>
+        <li>
+          Combined semantic and keyword rankings through weighted hybrid retrieval.
+        </li>
+        <li>
+          Applied query-level and result-level relevance controls.
+        </li>
+        <li>
+          Grouped related catalogue records into dataset-series results.
+        </li>
+        <li>
+          Built a responsive Streamlit interface with filters, sorting and
+          pagination.
+        </li>
+        <li>
+          Automated catalogue collection, index rebuilding, testing and release
+          publishing through GitHub Actions.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Search Architecture</h2>
+
+      <h3>1. Semantic Search</h3>
+
+      <p>
+        The semantic search component uses the
+        <strong>sentence-transformers/all-MiniLM-L6-v2</strong> model to convert
+        catalogue records and user queries into numerical embeddings.
+      </p>
+
+      <p>
+        This allows the application to identify conceptually related datasets even
+        when the user's wording is different from the terminology used in a dataset
+        title or description.
+      </p>
+
+      <h3>2. Field-Aware Keyword Search</h3>
+
+      <p>
+        The keyword component uses TF-IDF retrieval across separate metadata fields
+        rather than treating each catalogue record as one undifferentiated block of
+        text.
+      </p>
+
+      <p>The indexed fields include:</p>
+
+      <ul>
+        <li>Dataset title</li>
+        <li>Description</li>
+        <li>Organisation</li>
+        <li>Subjects, tags and categories</li>
+        <li>Resource formats and resource information</li>
+      </ul>
+
+      <h3>3. Hybrid Ranking</h3>
+
+      <p>
+        Semantic and keyword candidates are combined using weighted reciprocal rank
+        fusion, with a stronger weighting applied to semantic similarity while still
+        preserving useful exact keyword matches.
+      </p>
+
+      <p>
+        The current ranking uses a <strong>70% semantic</strong> and
+        <strong>30% keyword</strong> weighting.
+      </p>
+
+      <h3>4. Relevance Controls</h3>
+
+      <p>
+        Query-level relevance checks prevent clearly unrelated searches from
+        producing misleading result lists. Result-level thresholds then remove weak
+        matches and low-quality ranking tails before results are shown.
+      </p>
+
+      <h3>5. Dataset-Series Grouping</h3>
+
+      <p>
+        Some catalogue records represent different years or editions of the same
+        dataset series. The application detects these relationships and groups them
+        into one result card, helping users browse repeated records more clearly.
+      </p>
+    </section>
+
+    <section>
+      <h2>Application Features</h2>
+
+      <ul>
+        <li>Natural-language search across the Data.NSW catalogue</li>
+        <li>Semantic and field-aware keyword hybrid retrieval</li>
+        <li>Relevance filtering for weak or unrelated results</li>
+        <li>Dataset-series grouping for repeated catalogue records</li>
+        <li>Filtering by resource format</li>
+        <li>Filtering by publishing organisation</li>
+        <li>Filtering by Data.NSW category</li>
+        <li>Filtering by modification date range</li>
+        <li>Machine-readable resource filter</li>
+        <li>Sorting by relevance or last modified date</li>
+        <li>Pagination for larger result sets</li>
+        <li>Recently updated dataset browsing</li>
+        <li>Direct links to original Data.NSW catalogue records</li>
+        <li>Responsive desktop and mobile interface</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Search Evaluation</h2>
+
+      <p>
+        The application was compared with the standard Data.NSW catalogue search
+        using identical query text, no additional filters and relevance sorting in
+        both interfaces.
+      </p>
+
+      <p>
+        These examples provide a small qualitative comparison rather than a formal
+        benchmark. They demonstrate how semantic retrieval, hybrid ranking and
+        spelling tolerance can improve selected searches while still preserving
+        strong direct catalogue matches for clear, well-structured queries.
+      </p>
+
+      <h3>Everyday wording: “money cash”</h3>
+
+      <p>
+        Data.NSW returned no results for this query. The AI search returned eight
+        results and placed two records relating to unclaimed government money at
+        the top.
+      </p>
+
+      <p>
+        This demonstrates how semantic retrieval can connect broad everyday wording
+        with catalogue concepts that do not use the exact query phrase.
+      </p>
+
+      <div class="chart-grid">
+
+        <div class="chart-card">
+          <img
+            src="assets/open-data-ai-search/money-cash-data-nsw.jpeg"
+            alt="Data.NSW search returning no results for money cash"
+            loading="lazy">
+          <h3>Data.NSW search</h3>
+          <p>
+            The standard catalogue search returned no matching datasets for the
+            query.
+          </p>
+        </div>
+
+        <div class="chart-card">
+          <img
+            src="assets/open-data-ai-search/money-cash-ai-search.jpeg"
+            alt="NSW Open Data AI Search results for money cash"
+            loading="lazy">
+          <h3>NSW Open Data AI Search</h3>
+          <p>
+            The application identified records relating to government money and
+            unclaimed funds.
+          </p>
+        </div>
+
+      </div>
+
+      <h3>Well-structured query: “road crash data for Western Sydney”</h3>
+
+      <p>
+        Both systems ranked <strong>NSW Crash Data</strong> and
+        <strong>Crash Statistics</strong> as the first two results, showing that
+        the hybrid search preserved the strongest direct catalogue matches for a
+        clear and well-structured query.
+      </p>
+
+      <p>
+        The results then differed. The AI search ranked
+        <strong>NSW crash statistics: Road users by local government area of
+        crash</strong> third, while Data.NSW ranked a dataset organised by weather,
+        lighting and road-surface conditions.
+      </p>
+
+      <p>
+        The LGA-based result is particularly useful for a query focused on Western
+        Sydney because it supports geographic analysis at the local-government-area
+        level. This example shows how the application can retain strong direct
+        matches while giving additional weight to records that better reflect the
+        location component of the query.
+      </p>
+
+      <div class="chart-grid">
+
+        <div class="chart-card">
+          <img
+            src="assets/open-data-ai-search/road-crash-western-sydney-data-nsw.jpeg"
+            alt="Data.NSW search results for road crash data for Western Sydney"
+            loading="lazy">
+          <h3>Data.NSW search</h3>
+          <p>
+            The standard search returned two strong leading crash datasets,
+            followed by a dataset focused on weather, lighting and road-surface
+            conditions.
+          </p>
+        </div>
+
+        <div class="chart-card">
+          <img
+            src="assets/open-data-ai-search/road-crash-western-sydney-ai-search.jpeg"
+            alt="NSW Open Data AI Search results for road crash data for Western Sydney"
+            loading="lazy">
+          <h3>NSW Open Data AI Search</h3>
+          <p>
+            The application preserved the same two leading datasets and ranked an
+            LGA-based crash dataset higher for the location-focused query.
+          </p>
+        </div>
+
+      </div>
+
+      <h3>Misspelling tolerance: “public transprot data”</h3>
+
+      <p>
+        This query contains a realistic misspelling of the word
+        <em>transport</em>. Data.NSW returned results including property acquisition,
+        rainfall and crash datasets, which did not closely represent the user's
+        likely search intent.
+      </p>
+
+      <p>
+        The AI search instead ranked public-transport timetable data first, followed
+        by travel-survey and related timetable records. This demonstrates that the
+        semantic component can preserve the likely topic of a query when an
+        important term contains a minor spelling error.
+      </p>
+
+      <div class="chart-grid">
+
+        <div class="chart-card">
+          <img
+            src="assets/open-data-ai-search/public-transprot-data-data-nsw.jpeg"
+            alt="Data.NSW results for the misspelt query public transprot data"
+            loading="lazy">
+          <h3>Data.NSW search</h3>
+          <p>
+            The highest-ranked records were only partially related to the intended
+            public-transport topic.
+          </p>
+        </div>
+
+        <div class="chart-card">
+          <img
+            src="assets/open-data-ai-search/public-transprot-data-ai-search.jpeg"
+            alt="NSW Open Data AI Search results for public transprot data"
+            loading="lazy">
+          <h3>NSW Open Data AI Search</h3>
+          <p>
+            The application retained the intended transport topic and returned
+            directly relevant timetable and travel datasets.
+          </p>
+        </div>
+
+      </div>
+
+      <h3>Evaluation Summary</h3>
+
+      <p>
+        The examples suggest that the hybrid approach provides the most additional
+        value when users enter everyday wording, combine several search concepts or
+        make a minor spelling error. It can also preserve strong direct matches for
+        well-structured queries while improving the relevance of secondary results.
+      </p>
+
+      <p>
+        The project is not intended to claim that the application will outperform
+        Data.NSW search for every query. Search quality varies according to the
+        wording of the query, the available catalogue metadata and the possible
+        interpretations of broad search terms.
+      </p>
+    </section>
+
+    <section>
+      <h2>Automated Daily Refresh</h2>
+
+      <p>
+        The catalogue and search indexes are refreshed automatically through a
+        scheduled GitHub Actions workflow.
+      </p>
+
+      <p>The automated workflow:</p>
+
+      <ul>
+        <li>Collects the latest Data.NSW catalogue metadata</li>
+        <li>Cleans and validates the catalogue records</li>
+        <li>Regenerates semantic embeddings</li>
+        <li>Rebuilds the field-aware keyword indexes</li>
+        <li>Runs the automated test suite</li>
+        <li>Packages the production search files</li>
+        <li>Publishes the latest verified package through GitHub Releases</li>
+      </ul>
+
+      <p>
+        The hosted application checks for a newer release, verifies its manifest
+        and file checksums, installs the updated indexes and reloads the search
+        resources. The previous verified index remains available if an update
+        cannot be downloaded or validated.
+      </p>
+    </section>
+
+    <section>
+      <h2>Testing and Validation</h2>
+
+      <p>
+        Automated tests are run as part of each refresh workflow before a new search
+        package is published.
+      </p>
+
+      <p>Testing covers areas including:</p>
+
+      <ul>
+        <li>Catalogue cleaning and validation</li>
+        <li>Search-document generation</li>
+        <li>Structured filter behaviour</li>
+        <li>Semantic and keyword index compatibility</li>
+        <li>Search ranking and result structure</li>
+        <li>Dataset-series grouping</li>
+        <li>Relevance filtering</li>
+        <li>Release packaging and checksum verification</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Project Outputs</h2>
+
+      <p>
+        The completed project includes the public Streamlit application, a
+        reproducible data and indexing pipeline, automated tests, scheduled
+        catalogue refreshes and production search-index releases.
+      </p>
+
+      <p>
+        View the live application to search the current catalogue, or open the
+        GitHub repository for the complete technical workflow, source code,
+        methodology, test suite and deployment configuration.
+      </p>
+
+      <a
+        class="button"
+        href="https://nsw-open-data-ai-search.streamlit.app/"
+        target="_blank"
+        rel="noopener">
+        Open Live Application
+      </a>
+
+      <a
+        class="button"
+        href="https://github.com/dzhang756/nsw-open-data-ai-search"
+        target="_blank"
+        rel="noopener">
+        View GitHub Repository
+      </a>
+    </section>
+
+    <section>
+      <h2>Limitations</h2>
+
+      <p>
+        The application is a portfolio search system built on public catalogue
+        metadata and should not be treated as an official replacement for the
+        Data.NSW portal.
+      </p>
+
+      <ul>
+        <li>
+          Search quality depends on the completeness and consistency of Data.NSW
+          catalogue metadata.
+        </li>
+        <li>
+          The application indexes metadata rather than the full contents of every
+          dataset or resource.
+        </li>
+        <li>
+          Metadata modification dates do not necessarily indicate when the
+          underlying data was last updated.
+        </li>
+        <li>
+          Resource formats and categories depend on publisher-entered metadata and
+          may be incomplete or inconsistent.
+        </li>
+        <li>
+          Machine-readable classification is rule-based and should be interpreted
+          as an estimate.
+        </li>
+        <li>
+          The project does not validate whether every listed resource URL is
+          currently active.
+        </li>
+        <li>
+          Relevance thresholds were calibrated using representative development
+          queries and may not cover every search pattern.
+        </li>
+        <li>
+          Misspelling tolerance depends on the remaining query context and may
+          decrease when several words are heavily misspelt or the query is extremely
+          short.
+        </li>
+        <li>
+          The comparison with Data.NSW is based on a small qualitative sample rather
+          than a statistically representative benchmark.
+        </li>
+        <li>
+          Search rankings may change as catalogue metadata, model behaviour or
+          retrieval settings are updated.
+        </li>
+        <li>
+          Streamlit Community Cloud may place the application into an inactive state
+          after extended periods without use, resulting in a slower initial load.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Skills Demonstrated</h2>
+
+      <div class="skills-list">
+        <span class="skill">API Data Extraction</span>
+        <span class="skill">Pagination Handling</span>
+        <span class="skill">Nested Metadata Processing</span>
+        <span class="skill">Data Cleaning</span>
+        <span class="skill">Data Validation</span>
+        <span class="skill">Natural Language Processing</span>
+        <span class="skill">Semantic Embeddings</span>
+        <span class="skill">TF-IDF Retrieval</span>
+        <span class="skill">Hybrid Search Design</span>
+        <span class="skill">Ranking Fusion</span>
+        <span class="skill">Relevance Evaluation</span>
+        <span class="skill">Search Result Grouping</span>
+        <span class="skill">Streamlit Development</span>
+        <span class="skill">Responsive Interface Design</span>
+        <span class="skill">Automated Testing</span>
+        <span class="skill">GitHub Actions</span>
+        <span class="skill">Release Automation</span>
+        <span class="skill">Production Deployment</span>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 David Zhang</p>
+    <p>Built with GitHub Pages.</p>
+  </footer>
+
+</body>
+</html>
